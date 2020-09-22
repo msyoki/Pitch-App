@@ -34,7 +34,7 @@ def promotion_pitch():
     title= 'promotion_pitch '
     return render_template('promotion_pitch.html',title=title)
 
-@app.route('/register')
+@app.route('/register' ,methods= ['GET','POST'])
 def register():
     form = RegistrationForm()
     return render_template('register.html',title='Register',form=form)
