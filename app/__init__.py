@@ -3,6 +3,7 @@ from .config import DevConfig
 
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = '3a58c9a4a8d5d9e456de6650505514d5'
 
 posts = [
     {
@@ -18,6 +19,12 @@ posts = [
         'content':'Second post content'
     }
 ]
+
+
+
+
+
+
 
 # Setting up configuration
 app.config.from_object(DevConfig)
