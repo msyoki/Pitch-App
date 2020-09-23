@@ -1,36 +1,21 @@
 from flask import Flask
-from .config import DevConfig
-from flask_sqlalchemy import SQLAlchemy
+from config import config_options
 
 
-db = SQLAlchemy()
+def create_app(config_name):
 
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = '3a58c9a4a8d5d9e456de6650505514d5'
-
-posts = [
-    {
-        'title':'Pitch post 1',
-        'author':'Erick Musyoki',
-        'date_post':'22 Sep 2020',
-        'content':'Fist post content'
-    },
-    {
-        'title':'Pitch post 2',
-        'author': 'Mike Mutua',
-        'date_post':'23 Sep 2020',
-        'content':'Second post content'
-    }
-]
+    app = Flask(__name__)
 
 
+    # Creating the app configurations
+    app.config.from_object(config_options[config_name])
 
-# Initializing flask extensions
-db.init_app(app)
+    # Initializing flask extensions
+   
+    
+    # Registering the blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
 
 
-# Setting up configuration
-app.config.from_object(DevConfig)
-
-from app import views
+    return app
