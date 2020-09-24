@@ -23,10 +23,14 @@
                     <a href="/about" class="nav-item nav-link">About</a>
                 </div>
                 <!-- Navbar Right Side -->
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="{{ url_for('main.login') }}">Login</a>
-                    <a class="nav-item nav-link" href="{{ url_for('main.register') }}">Sign Up</a>
-                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_authenticated %}
+                    <li style="color:white;padding:15px;">{{current_user.username}}</li>
+                    <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+                    {% else %}
+                    <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                    {%endif%}
+                </ul>>
             </div>
         </nav>
     </header>
@@ -46,14 +50,17 @@
             </div>
             <div class="col-md-4">
                 <div class="content-section">
-                    <h3>Pitch Category</h3>
-                    <p class='text-muted'>Select below:
+                    <h3 class="text-muted">Pitch Category</h3>
+                    <p class='text-muted'>click to select:
                         <ul class="list-group">
-                        <a href="/interview_pitch"><li class="list-group-item list-group-item-light">Interview pitch</li></a>
-                        <a href="/pickup_lines"><li class="list-group-item list-group-item-light">Pickup Lines</li></a>
-                        <a href="/promotion_pitch"><li class="list-group-item list-group-item-light">Promotion pitch</li></a>
-                        <a href="/products_pitch"><li class="list-group-item list-group-item-light">Product pitch</li></a>
+                            <a href="{{url_for('main.interview_pitches')}}" ><li class="list-group-item list-group-item-light">Interview pitch</li></a>
+                            <a href="{{url_for('main.product_pitches')}}"><li class="list-group-item list-group-item-light">Product pitch</li></a>
+                            <a href="{{url_for('main.promotion_pitches')}}"><li class="list-group-item list-group-item-light">Promotion pitch</li></a>
                         </ul>
+                        <br>
+                        <div class="container" style="padding-bottom: 20px;">
+                            <a href="{{url_for('main.new_pitch')}}" class="btn btn-warning">Create pitch</a>
+                        </div>
                     </p>
                 </div>
             </div>
