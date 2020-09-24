@@ -1,17 +1,18 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField,BooleanField
-from wtforms.validators import DataRequired,Length,Email,EqualTo
+from wtforms import StringField,TextAreaField,SubmitField,SelectField
+from wtforms.validators import Required
 
-class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
-    email = StringField('Email',validators=[DataRequired(), Email()])
-    password = PasswordField('password',validators = [DataRequired()])
-    confirm_password =PasswordField('Confirm Password',validators=[DataRequired(),EqualTo('password')])
-    submit = SubmitField('Sign Up')
+class PitchForm(FlaskForm):
 
+    title = StringField('Pitch title',validators=[Required()])
+    text = TextAreaField('Text',validators=[Required()])
+    category = SelectField('Type',choices=[('interview','Interview pitch'),('product','Product pitch'),('promotion','Promotion pitch')],validators=[Required()])
+    submit = SubmitField('Submit')
 
-class LoginForm(FlaskForm):
-    email = StringField('Email',validators=[DataRequired(), Email()])
-    password = PasswordField('password',validators = [DataRequired()])
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Sign In')
+class UpdateProfile(FlaskForm):
+    bio = TextAreaField('Bio.',validators = [Required()])
+    submit = SubmitField('Submit')
+
+class CommentForm(FlaskForm):
+    text = TextAreaField('Leave a comment:',validators=[Required()])
+    submit = SubmitField('Submit')
