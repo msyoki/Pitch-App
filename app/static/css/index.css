@@ -2,14 +2,20 @@ main{
     padding-top: 100px;
 }
 
+nav{
+    padding: 20px;
+}
 body, html {
     height: 100%;
+}
+body{
+    background-color: #eff7f6;
 }
 
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.pexels.com/photos/275226/pexels-photo-275226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.pexels.com/photos/2293546/pexels-photo-2293546.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 
   /* Set a specific height */
   height: 100%;
@@ -19,7 +25,8 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 25px;
-  opacity:0.8;
+  opacity:0.9;
+  box-shadow: 10px 10px 5px grey;
 }
 
 /* Place text in the middle of the image */
