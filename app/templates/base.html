@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 </head>
 <body>
@@ -25,19 +25,19 @@
                 <!-- Navbar Right Side -->
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_authenticated %}
-                    <li style="color:white;padding:15px;">{{current_user.username}}</li>
-                    <li><a style="color:#f6d55c;" href="{{url_for('auth.logout')}}">Sign out</a></li>
+                    <li><a href="{{url_for('main.profile',uname=current_user.username)}}" style="margin-right: 20px;color: white;">Profile</a></li>
+                    <li><a style="color:#f6d55c;font-weight: bold;" href="{{url_for('auth.logout')}}">Sign out</a></li>
                     {% else %}
-                    <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                    <li><a style="color:white;font-weight: bold;" href="{{url_for('auth.login')}}">Sign in</a></li>
                     {%endif%}
-                </ul>>
+                </ul>
             </div>
         </nav>
     </header>
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-8">
-                {% with messages = get_flashed_messages(with_categories=true) %}
+                <!-- {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                         {% for category, message in messages %}
                             <div class="alert alert-{{ category }}">
@@ -45,17 +45,17 @@
                             </div>
                         {% endfor %}
                     {% endif %}
-                {% endwith %}
-                {% block content %}{% endblock %}
+                {% endwith %} -->
+            {% block content %}{% endblock %}
             </div>
             <div class="col-md-4">
-                <div class="content-section">
-                    <h3 class="text-muted">Pitch Category</h3>
-                    <p class='text-muted'>click to view:
+                <div class="content-section" style="margin-left: 20px;">
+                    <h3>Pitch categories</h3>
+                    <p>Select category to view posts:
                         <ul class="list-group">
-                            <a style="font-weight: bold;" href="{{url_for('main.interview_pitches')}}" ><li class="list-group-item list-group-item-light">Interview pitch</li></a>
-                            <a style="font-weight: bold;" href="{{url_for('main.product_pitches')}}"><li class="list-group-item list-group-item-light">Product pitch</li></a>
-                            <a style="font-weight: bold;" href="{{url_for('main.promotion_pitches')}}"><li class="list-group-item list-group-item-light">Promotion pitch</li></a>
+                            <a style="color: #212529;" href="{{url_for('main.interview_pitches')}}" ><li class="list-group-item list-group-item-light" style="color: #212529;">Interview pitch</li></a>
+                            <a  style="color: #212529;"  href="{{url_for('main.product_pitches')}}"><li class="list-group-item list-group-item-light" style="color: #212529;">Product pitch</li></a>
+                            <a  style="color: #212529;" href="{{url_for('main.promotion_pitches')}}"><li class="list-group-item list-group-item-light" style="color: #212529;">Promotion pitch</li></a>
                         </ul>
                         <br>
                         <div class="container" style="padding-bottom: 20px;">
