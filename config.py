@@ -4,9 +4,9 @@ class Config:
     '''
     General configuration parent class
     '''
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://msyoki:psql20*@localhost/one_minute_pitch'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://msyoki:psql20*@localhost/pitch'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
 
