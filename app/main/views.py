@@ -1,9 +1,10 @@
 from . import main
-from flask import render_template,url_for,flash,redirect
+from flask import render_template,url_for,flash,redirect,abort,request
 from ..models import User,Pitch,Comment
 from .forms import UpdateProfile,PitchForm,CommentForm
 from flask_login import login_required,current_user
-import datetime
+from datetime import datetime
+from .. import db,photos
 
 @main.route('/')
 def home():
@@ -83,6 +84,7 @@ def new_pitch():
 
 
 @main.route('/pitches/interview_pitches')
+@login_required
 def interview_pitches():
 
     pitches = Pitch.get_pitches('interview')
@@ -90,6 +92,7 @@ def interview_pitches():
     return render_template("interview_pitches.html", pitches = pitches)
 
 @main.route('/pitches/product_pitches')
+@login_required
 def product_pitches():
 
     pitches = Pitch.get_pitches('product')
@@ -97,6 +100,7 @@ def product_pitches():
     return render_template("product_pitches.html", pitches = pitches)
 
 @main.route('/pitches/promotion_pitches')
+@login_required
 def promotion_pitches():
 
     pitches = Pitch.get_pitches('promotion')
