@@ -8,24 +8,26 @@
     <div >
         <h3>{{pitch.pitch_title}}</h3>
         <hr>
-        <p>{{pitch.pitch_content}}</p>
-        <span>
+        <p>"<i>{{pitch.pitch_content}}</i>"</p>
+        <br>
         <p>Posted on {{date}} by {{pitch.user.username| capitalize}}</p>
         <a href="/pitch/{{pitch.id}}?like=1">
-            <i class="btn btn-light btn-sm" style="margin-right: 10px;">like</i>
+            <i class="btn btn-warning btn-sm" style="margin-right: 5px;">like</i>
         </a>{{pitch.likes}} 
         <a href="/pitch/{{pitch.id}}?dislike=1">
-            <i class="btn btn-light btn-sm" style="margin-right: 10px;">dislike</i>
-        </a>{{pitch.dislikes}}</span>
+            <i class="btn btn-warning btn-sm" style="margin-right: 5px;">dislike</i>
+        </a>{{pitch.dislikes}}
 
     </div><hr>
     <div >
-        <h4>Comments</h4>
+        <h4>Comments:</h4>
+        {{macro.displayComments(comments)}}
+        <br>
         <hr>
         {% if current_user.is_authenticated %}
             {{ wtf.quick_form(comment_form) }}
         {%endif%}
-        {{macro.displayComments(comments)}}
+       
     </div>
 
 </div>
