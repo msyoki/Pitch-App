@@ -9,7 +9,7 @@
     <div >
         <div class="thumbnail">
             {% if user.profile_pic_path %}
-                <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail" width="200px" height="200px">
+                <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail" width="200" height="200">
             {%else%}
                 <p>No profile picture</p>
             {% endif %}
