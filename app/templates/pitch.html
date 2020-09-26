@@ -1,23 +1,25 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
+{% import "bootstrap/wtf.html" as wtf %}
 
 <!-- Content block -->
 {%block content%}
-<div class="container" style="font-family: 'Indie Flower', cursive;">
-    <div class="row">
+<div class="container" >
+    <div >
         <h3>{{pitch.pitch_title}}</h3>
         <hr>
         <p>{{pitch.pitch_content}}</p>
         <span>
         <p>Posted on {{date}} by {{pitch.user.username| capitalize}}</p>
         <a href="/pitch/{{pitch.id}}?like=1">
-            <i class="far fa-thumbs-up"></i>
-        </a>{{pitch.likes}} <a href="/pitch/{{pitch.id}}?dislike=1">
-            <i class="far fa-thumbs-down"></i>
+            <i class="btn btn-light btn-sm" style="margin-right: 10px;">like</i>
+        </a>{{pitch.likes}} 
+        <a href="/pitch/{{pitch.id}}?dislike=1">
+            <i class="btn btn-light btn-sm" style="margin-right: 10px;">dislike</i>
         </a>{{pitch.dislikes}}</span>
 
-    </div>
-    <div class="row">
+    </div><hr>
+    <div >
         <h4>Comments</h4>
         <hr>
         {% if current_user.is_authenticated %}
