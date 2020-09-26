@@ -6,7 +6,7 @@ class Config:
     '''
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Pitchapp@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI = 'postgres://oyvdgupxolvxse:7f640312fec6b1693fccc9aa3a46307e7c4cee0c6f2756d6cfd2a00a8396cbbe@ec2-107-22-7-9.compute-1.amazonaws.com:5432/dfsofooub6js6n'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -37,7 +37,7 @@ class DevConfig(Config):
     Arg:
         config: The parent configuration class with General connfiguration settings
     '''
-
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://msyoki:psql20*@localhost/pitch'
     DEBUG=True
 
 config_options = {
