@@ -1,5 +1,5 @@
 # Pitch-App
-## A web application that allows users to create a one minute pitch and also get feedback on their post as comments and votes.
+ A web application that allows users to create a one minute pitch and also get feedback on their post as comments and votes.
 
 ## Developer
 Musyoki Mutua
