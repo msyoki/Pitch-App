@@ -6,7 +6,7 @@ class Config:
     '''
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://msyoki:psql20*@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://msyoki:psql20*@localhost/onemin_pitch'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -38,7 +38,7 @@ class DevConfig(Config):
     Arg:
         config: The parent configuration class with General connfiguration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://msyoki:psql20*@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://msyoki:psql20*@localhost/onemin_pitch'
     
     DEBUG=True
 
