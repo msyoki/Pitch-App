@@ -19,7 +19,7 @@ class ProdConfig(Config):
     '''
     Production configuration child class 
     '''
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI ='postgres://oyvdgupxolvxse:7f640312fec6b1693fccc9aa3a46307e7c4cee0c6f2756d6cfd2a00a8396cbbe@ec2-107-22-7-9.compute-1.amazonaws.com:5432/dfsofooub6js6n'
 
     
 
@@ -39,7 +39,7 @@ class DevConfig(Config):
         config: The parent configuration class with General connfiguration settings
     '''
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://msyoki:psql20*@localhost/pitch'
-    
+
     DEBUG=True
 
 config_options = {
